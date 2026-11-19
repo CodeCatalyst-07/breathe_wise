@@ -27,6 +27,9 @@ yarn-error.log*
 .env*
 !.env.example
 
+# local scripts & notes
+docs/VIDEO_SCRIPT.md
+
 # vercel
 .vercel
 
