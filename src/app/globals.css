@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-paper: #f2f5f6;
+  --color-surface: #ffffff;
+  --color-ink: #14262f;
+  --color-ink-muted: #4a5e68;
+  --color-line: #c9d4d9;
+  --color-action: #0b6e8a;
+  --color-action-hover: #08566c;
+
+  /* CPCB-style Category Solid Marks (Accessible >= 4.5:1 on white) */
+  --mark-good: #1e7f5c;
+  --mark-satisfactory: #5b7815;
+  --mark-moderate: #946a00;
+  --mark-poor: #c04812;
+  --mark-very-poor: #b3243a;
+  --mark-severe: #6b1b3a;
+
+  /* CPCB-style Category Light Tints */
+  --tint-good: #e8f5ee;
+  --tint-satisfactory: #f2f7e6;
+  --tint-moderate: #fff8e6;
+  --tint-poor: #fdf1eb;
+  --tint-very-poor: #fbecee;
+  --tint-severe: #f7e8ef;
+
+  /* Functional Sky Gradients */
+  --sky-good: linear-gradient(180deg, #dceef6 0%, #f2f5f6 100%);
+  --sky-satisfactory: linear-gradient(180deg, #e3eddd 0%, #f2f5f6 100%);
+  --sky-moderate: linear-gradient(180deg, #ede6d4 0%, #f2f5f6 100%);
+  --sky-poor: linear-gradient(180deg, #eadcce 0%, #f2f5f6 100%);
+  --sky-very-poor: linear-gradient(180deg, #e8d1d5 0%, #f2f5f6 100%);
+  --sky-severe: linear-gradient(180deg, #d8c7ce 0%, #f2f5f6 100%);
+
+  --font-sans: "Noto Sans", "Noto Sans Devanagari", system-ui, -apple-system, sans-serif;
+  --font-serif: "Noto Serif", "Noto Serif Devanagari", Georgia, serif;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:lang(hi) {
+  line-height: 1.7;
+}
+
+*:focus-visible {
+  outline: 3px solid var(--color-action);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #14262f !important;
+    font-size: 10.5pt !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Hide interactive navigation, location form, household settings, ask panel, share bar */
+  nav,
+  header,
+  form,
+  .no-print,
+  button,
+  input,
+  select,
+  textarea,
+  [aria-label="Skip to main content"] {
+    display: none !important;
+  }
+
+  main,
+  section,
+  article {
+    box-shadow: none !important;
+    border-color: #cbd5e1 !important;
+    max-width: 100% !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid !important;
+    color: #14262f !important;
+  }
+
+  section {
+    break-inside: avoid !important;
+    margin-bottom: 10pt !important;
+  }
+
+  a {
+    color: #14262f !important;
+    text-decoration: underline !important;
+  }
+}

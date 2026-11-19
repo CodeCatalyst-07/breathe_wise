@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "id": 1273294,
+      "name": "Delhi",
+      "latitude": 28.65195,
+      "longitude": 77.23149,
+      "country": "India",
+      "admin1": "Delhi"
+    },
+    {
+      "id": 1261481,
+      "name": "New Delhi",
+      "latitude": 28.61394,
+      "longitude": 77.20902,
+      "country": "India",
+      "admin1": "Delhi"
+    }
+  ],
+  "generationtime_ms": 0.54
+}

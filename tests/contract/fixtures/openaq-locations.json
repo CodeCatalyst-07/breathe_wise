@@ -1,0 +1,47 @@
+{
+  "results": [
+    {
+      "id": 8124,
+      "name": "Anand Vihar, Delhi - DPCC",
+      "coordinates": {
+        "latitude": 28.6476,
+        "longitude": 77.3158
+      },
+      "sensors": [
+        {
+          "id": 24190,
+          "name": "pm25",
+          "parameter": {
+            "id": 2,
+            "name": "pm25",
+            "units": "µg/m³"
+          },
+          "latest": {
+            "datetime": {
+              "utc": "2026-11-19T05:30:00Z"
+            },
+            "value": 248.5
+          }
+        },
+        {
+          "id": 24191,
+          "name": "pm10",
+          "parameter": {
+            "id": 1,
+            "name": "pm10",
+            "units": "µg/m³"
+          },
+          "latest": {
+            "datetime": {
+              "utc": "2026-11-19T05:30:00Z"
+            },
+            "value": 412.0
+          }
+        }
+      ],
+      "datetimeLast": {
+        "utc": "2026-11-19T05:30:00Z"
+      }
+    }
+  ]
+}

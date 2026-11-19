@@ -1,0 +1,22 @@
+{
+  "id": "chatcmpl-gemma-mock-12345",
+  "object": "chat.completion",
+  "created": 1732000000,
+  "model": "gemma-4-31b-it",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"narrative\":\"Air quality in New Delhi is currently severe, with outdoor PM2.5 reaching 200 ug/m3. Prioritize indoor filtration to lower levels down to 40 ug/m3, achieving a 160 ug/m3 reduction. Shift outdoor errands away from the 280 ug/m3 morning peak toward cleaner afternoon windows around 90 ug/m3.\",\"actionCommentaries\":[{\"actionId\":\"use_hepa_purifier\",\"commentary\":\"Continuous HEPA filtration cuts indoor levels by 160 ug/m3 (from 200 down to 40 ug/m3).\"},{\"actionId\":\"shift_outdoor_activity_to_cleaner_hour\",\"commentary\":\"Rescheduling outdoor travel saves up to 190 ug/m3 by avoiding the 280 peak in favor of 90 ug/m3 trough conditions.\"}]}",
+        "reasoning_content": "Internal chain of thought ignored by adapter"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 420,
+    "completion_tokens": 175,
+    "total_tokens": 595
+  }
+}

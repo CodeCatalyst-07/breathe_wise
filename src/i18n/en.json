@@ -1,0 +1,379 @@
+{
+  "app": {
+    "title": "Urban Air Quality Assistant",
+    "tagline": "Actionable, low-emission daily routines and indoor smog hacks for severe winter pollution."
+  },
+  "aqi": {
+    "category": {
+      "good": "Good",
+      "satisfactory": "Satisfactory",
+      "moderate": "Moderate",
+      "poor": "Poor",
+      "very_poor": "Very Poor",
+      "severe": "Severe"
+    },
+    "basis": {
+      "instantaneous": "Instantaneous sensor/model observation",
+      "24h_average": "24-hour time-weighted average"
+    }
+  },
+  "actions": {
+    "submit": "Calculate Routine Impact",
+    "reset": "Reset Profile",
+    "languageToggle": "Switch to Hindi",
+    "ventilate_at_cleanest_hour": {
+      "label": "Ventilate at cleanest forecast hour",
+      "description": "Air rooms when atmospheric dispersion peaks and ambient particulate dips."
+    },
+    "keep_windows_closed_in_peak": {
+      "label": "Keep windows sealed during peak smog hours",
+      "description": "Prevent outdoor smog infiltration by sealing the building envelope during stagnant periods."
+    },
+    "use_hepa_purifier": {
+      "label": "Operate HEPA room air purifier",
+      "description": "Continuously circulate and filter indoor air to drive down particle concentration."
+    },
+    "shift_outdoor_activity_to_cleaner_hour": {
+      "label": "Shift outdoor activity to cleaner hours",
+      "description": "Reschedule outdoor commutes, errands, or recreation to the lowest-pollution window."
+    },
+    "wear_fitted_respirator": {
+      "label": "Wear a well-fitted N95/FFP2 respirator outdoors",
+      "description": "Reduce inhaled particulate volume; a tight perimeter facial seal is essential."
+    },
+    "switch_commute_mode": {
+      "label": "Switch to enclosed, filtered transit modes",
+      "description": "Shift from open two-wheelers or walking along major arterials to metro or closed buses."
+    },
+    "improve_cooking_ventilation": {
+      "label": "Ventilate kitchen exhaust while isolating living areas",
+      "description": "Run mechanical kitchen exhaust to clear combustion particles without venting into bedrooms."
+    },
+    "avoid_waste_and_biomass_burning": {
+      "label": "Curtail localized waste and biomass burning",
+      "description": "Eliminate neighborhood open burning to prevent hyperlocal toxic particulate spikes."
+    },
+    "shared_clean_air_room_for_building": {
+      "label": "Create a shared clean-air room for the building",
+      "description": "Designate and seal a communal room with shared HEPA filtration as a clean-air refuge."
+    },
+    "reduce_vehicle_idling_at_school_gates": {
+      "label": "Curtail vehicle idling at school gates and drop-off zones",
+      "description": "Collaborate with schools to enforce anti-idling zones, reducing children's peak roadside exposure."
+    },
+    "organise_carpool_or_shared_transport": {
+      "label": "Organise carpooling and shared neighborhood commutes",
+      "description": "Consolidate neighborhood travel trips to cut local tailpipe emissions during smog episodes."
+    },
+    "plants_myth_check": {
+      "label": "Evidence check: indoor plants and air purification",
+      "description": "Scientific consensus shows indoor potted plants have negligible effect on room-scale PM2.5."
+    }
+  },
+  "reasons": {
+    "good_air_ventilation_opportunity": "Air quality is good; ideal window for thorough natural ventilation.",
+    "good_air_routine_ventilation": "Clean outdoor air allows safe envelope flushing for vulnerable individuals.",
+    "routine_indoor_source_control": "Routine prevention of indoor combustion accumulation.",
+    "vulnerable_indoor_source_prevention": "High priority to prevent respiratory irritation from indoor emissions.",
+    "community_clean_air_stewardship": "Collective community action to safeguard neighborhood air.",
+    "educational_myth_dispelled": "Evidence check clarifying limitations of botanical air cleaning.",
+    "satisfactory_moderate_ventilation": "Air quality is satisfactory; ventilate selectively during cleanest hours.",
+    "satisfactory_timed_ventilation": "Timed ventilation to refresh air without drawing in diurnal peaks.",
+    "moderate_peak_smog_protection": "Moderate air quality; seal windows during morning and evening stagnation.",
+    "vulnerable_moderate_infiltration_prevention": "Vulnerable occupants require tighter window sealing even under moderate smog.",
+    "vulnerable_timed_ventilation": "Restrict ventilation strictly to the cleanest predicted hours.",
+    "outdoor_exposure_schedule_optimization": "Reschedule outdoor tasks away from peak pollution hours.",
+    "vulnerable_outdoor_avoidance_peak": "Protect vulnerable individuals by avoiding exposure during peak outdoor spikes.",
+    "commute_inhalation_reduction": "Reduce respiratory tract deposition during daily travel.",
+    "vulnerable_protective_masking": "Critical barrier protection for sensitive respiratory systems.",
+    "transit_exposure_mitigation": "Mitigate high direct exposure along traffic corridors.",
+    "vulnerable_closed_transit_priority": "High priority for vulnerable commuters to use filtered transit.",
+    "active_indoor_filtration": "Begin active mechanical HEPA filtration to maintain clean indoor baselines.",
+    "vulnerable_hepa_protection": "Essential HEPA filtration to protect vulnerable occupants indoors.",
+    "poor_air_seal_residence": "Poor air quality requires proactive envelope sealing.",
+    "vulnerable_strict_envelope_sealing": "Strict window sealing required to prevent respiratory aggravation.",
+    "poor_air_hepa_filtration": "Continuous HEPA filtration recommended under poor air conditions.",
+    "poor_air_respirator_advisory": "Respirators recommended for any prolonged outdoor exposure.",
+    "poor_air_restricted_airing": "Only brief airing at the cleanest hour is permissible.",
+    "vulnerable_restricted_ventilation": "Minimal, highly controlled airing for vulnerable households.",
+    "severe_smog_seal_envelope": "Emergency smog levels: complete residential envelope closure required.",
+    "very_poor_hepa_essential": "Very poor ambient air makes indoor mechanical filtration vital.",
+    "very_poor_respirator_essential": "Mandatory respiratory protection outdoors under very poor air quality.",
+    "severe_smog_continuous_hepa": "Severe smog emergency: continuous maximum-speed HEPA filtration required.",
+    "severe_smog_mandatory_masking": "Severe emergency: stay indoors or use certified N95 respirators with airtight fit.",
+    "severe_outdoor_curtailment": "Cancel or strictly minimize all outdoor activities."
+  },
+  "assumptions": {
+    "air_exchange_open": "Assumes typical open window air exchange of 3.0 ACH (range 1.5 to 6.0).",
+    "default_room_volume": "Assumes standard default room volume of 45 m³ (range 30 to 70 m³) as no room dimensions were specified.",
+    "air_exchange_closed": "Assumes sealed envelope infiltration of 0.6 ACH (range 0.3 to 1.0).",
+    "cleanest_vs_dirtiest_hour": "Calculated by comparing forecast cleanest hour against peak diurnal hour.",
+    "purifier_owned_cadr": "Calculated using user-specified clean air delivery rate (CADR).",
+    "purifier_recommended_cadr": "Calculated based on standard 4.5 ACH room sizing rule of thumb.",
+    "forecast_peak_vs_cleanest_outdoor": "Direct difference between forecast peak and trough concentrations.",
+    "respirator_fit_is_critical_caveat": "Protective efficiency depends strictly on facial fit; leakage negates filter ratings.",
+    "commute_enclosed_transit_mitigation": "Directional reduction from cabin filtration in buses or underground metro systems.",
+    "kitchen_exhaust_capture": "Assumes mechanical exhaust captures cooking particulates before room dispersion.",
+    "community_emission_curtailment": "Directional benefit from preventing open municipal and agricultural fires.",
+    "shared_clean_air_room_envelope": "Directional estimate assuming clean air refuge room has sealed doors/windows and continuous filtration.",
+    "school_gate_idling_exposure": "Directional reduction in peak drop-off curb exposure when vehicle idling is eliminated.",
+    "carpooling_trip_curtailment": "Directional reduction in neighborhood vehicle emissions from trip consolidation.",
+    "plants_phytoremediation_negligible": "Chamber studies do not translate to real-world residential rooms.",
+    "exposure_commute_assumes_ambient_outdoor": "Commute microenvironment exposure conservatively equals ambient outdoor PM2.5.",
+    "exposure_linear_hourly_microenvironment_integration": "Linear hourly time-weighted average integration across schedule segments."
+  },
+  "safety": {
+    "disclaimer": {
+      "general_guidance": "BreatheWise provides exposure reduction engineering estimates. It does not provide medical diagnosis, clinical treatment advice, or personalized healthcare prescriptions."
+    },
+    "medical": {
+      "seek_help_for_symptoms": "If you or any household member experience acute respiratory distress, chest tightness, wheezing, or dizziness, seek immediate medical attention from qualified healthcare professionals."
+    }
+  },
+  "confidence": {
+    "high": "High Confidence",
+    "medium": "Moderate Confidence",
+    "low": "Preliminary Estimate"
+  },
+  "dayplan": {
+    "windows": {
+      "best_outdoor": {
+        "label": "Best outdoor activity window",
+        "reason": "Predicted diurnal trough with lowest ambient particulate concentration."
+      },
+      "best_ventilation": {
+        "label": "Recommended home ventilation window",
+        "reason": "Outdoor air is cleaner than estimated indoor levels without severe smog."
+      },
+      "avoid": {
+        "label": "Elevated pollution avoidance window",
+        "reason": "Stagnant atmospheric conditions leading to dangerous particulate accumulation."
+      }
+    }
+  },
+  "builtin_explanations": {
+    "summary": {
+      "good": "Air quality is good. Enjoy regular outdoor activities and ventilate your living space freely.",
+      "satisfactory": "Air quality is satisfactory. Sensitive individuals should consider reducing heavy outdoor exertion.",
+      "moderate": "Moderate air quality. Keep windows closed during rush hours and ventilate during afternoon lulls.",
+      "poor": "Poor air quality detected. Vulnerable family members should limit prolonged outdoor exertion and run air purifiers indoors.",
+      "very_poor": "Very poor air quality emergency. Avoid outdoor exercise, wear N95 respirators if traveling, and keep indoor spaces tightly sealed with HEPA filtration.",
+      "severe": "Severe smog crisis. Stay indoors, keep all doors and windows sealed, and operate purifiers continuously on maximum settings."
+    },
+    "ventilate_at_cleanest_hour": {
+      "what_to_do": "Open windows for cross-ventilation during the forecast clean window, then seal completely.",
+      "why_it_matters": "Flushes accumulated indoor CO2 and moisture without allowing outdoor winter smog spikes inside."
+    },
+    "keep_windows_closed_in_peak": {
+      "what_to_do": "Keep all exterior windows and doors firmly sealed during morning and evening stagnation.",
+      "why_it_matters": "Prevents cold winter inversion smog from infiltrating living spaces."
+    },
+    "use_hepa_purifier": {
+      "what_to_do": "Run a true HEPA air purifier continuously in your main bedroom or living area.",
+      "why_it_matters": "Mechanically captures fine airborne particulates (PM2.5) to keep indoor concentrations within safe limits."
+    },
+    "shift_outdoor_activity_to_cleaner_hour": {
+      "what_to_do": "Reschedule outdoor runs, walks, and errands to the cleanest forecast window.",
+      "why_it_matters": "Significantly cuts cumulative inhaled toxic particulate dose without canceling physical routines."
+    },
+    "wear_fitted_respirator": {
+      "what_to_do": "Wear a certified N95 or FFP2 respirator outdoors, pressing the metal nose clip for an airtight seal.",
+      "why_it_matters": "Filters out fine toxic aerosol particles. Note: an airtight perimeter seal is required; loose cloth masks offer minimal particulate protection."
+    },
+    "switch_commute_mode": {
+      "what_to_do": "Choose underground metro or sealed, air-conditioned transit instead of open two-wheelers or walking along arterials.",
+      "why_it_matters": "Reduces direct roadside exhaust inhalation by staying inside filtered vehicle cabins."
+    },
+    "improve_cooking_ventilation": {
+      "what_to_do": "Run kitchen exhaust fans and close interior doors to living areas during frying and high-heat cooking.",
+      "why_it_matters": "Removes combustion ultrafines directly at the source before they disperse into resting areas."
+    },
+    "avoid_waste_and_biomass_burning": {
+      "what_to_do": "Do not burn dry leaves, trash, or solid fuels; report open fires in your neighborhood.",
+      "why_it_matters": "Hyperlocal biomass fires release concentrated plumes of carcinogenic soot and polycyclic aromatic hydrocarbons."
+    },
+    "shared_clean_air_room_for_building": {
+      "what_to_do": "Collaborate with apartment neighbors to set up a shared clean-air community room with dedicated HEPA filtration.",
+      "why_it_matters": "Provides a safe haven for vulnerable residents, children, and elderly neighbors who lack private purifiers."
+    },
+    "reduce_vehicle_idling_at_school_gates": {
+      "what_to_do": "Turn off vehicle engines while waiting during school pick-up and drop-off hours.",
+      "why_it_matters": "Eliminates concentrated tailpipe emissions right at children's breathing height outside school gates."
+    },
+    "organise_carpool_or_shared_transport": {
+      "what_to_do": "Organize carpooling or shared rides with neighbors for daily school and office runs.",
+      "why_it_matters": "Reduces the total number of combustion vehicle trips contributing to neighborhood winter smog."
+    },
+    "plants_myth_check": {
+      "what_to_do": "Rely on mechanical HEPA filters and envelope sealing rather than potted houseplants for air purification.",
+      "why_it_matters": "Scientific chamber studies demonstrate that potted houseplants have negligible impact on real-world room particulate levels."
+    }
+  },
+  "attributions": {
+    "title": "Data Sources & Methodologies",
+    "openaq": "Ground station observations from OpenAQ",
+    "cams": "Atmospheric models from Copernicus Atmosphere Monitoring Service via Open-Meteo",
+    "gemma": "Narrative guidance synthesized with Google Gemma 4 31B IT via Jarvis Labs"
+  },
+  "ui": {
+    "nav": {
+      "skipToContent": "Skip to main content",
+      "today": "Today",
+      "whatHelps": "What helps",
+      "ask": "Ask",
+      "about": "How it works",
+      "home": "Home",
+      "switchLanguage": "हिन्दी में देखें"
+    },
+    "location": {
+      "label": "Your City or Neighborhood",
+      "placeholder": "Search city or locality (e.g. Anand Vihar, Indirapuram, Connaught Place)",
+      "searching": "Searching locations...",
+      "noResults": "No matching locations found.",
+      "useCurrent": "Use my current location",
+      "currentLocationPrivacyNote": "Your coordinates are processed only in your browser to look up nearest sensors and are never saved or tracked.",
+      "geoPermissionDenied": "Location access was denied. You can search your city manually.",
+      "geoUnavailable": "Geolocation is not supported or unavailable."
+    },
+    "hero": {
+      "airRightNow": "Air in {place} is {category} right now",
+      "pm25Unit": "µg/m³",
+      "whoGuideline": "{multiple}× WHO guideline (15 µg/m³)",
+      "levelMeterLabel": "Pollution level {current} of {total}: {category}",
+      "sourceStation": "Measured at monitoring station ({distance} km away)",
+      "sourceModel": "Regional atmospheric model estimate",
+      "updatedAt": "Updated {time}",
+      "divergenceWarning": "Local station reports {ratio}× higher pollution than regional model."
+    },
+    "outlook": {
+      "title": "24-Hour Forecast & Trend",
+      "improving": "Air quality is expected to improve over the next 24 hours.",
+      "worsening": "Air quality is expected to worsen over the next 24 hours.",
+      "stable": "Air quality is expected to remain stable over the next 24 hours.",
+      "unavailable": "Forecast trend data is currently unavailable.",
+      "cleanestHour": "Cleanest window around {hour} ({pm25} µg/m³)",
+      "worstHour": "Worst peak smog around {hour} ({pm25} µg/m³)",
+      "tableSummary": "Hourly particulate forecast breakdown table for screen readers",
+      "hour": "Hour",
+      "pm25": "PM2.5",
+      "category": "Category",
+      "outdoor": "Outdoor Activity",
+      "ventilation": "Ventilation"
+    },
+    "dayplan": {
+      "title": "Day Routine & Timing",
+      "subtitle": "Time your outdoor commute and indoor ventilation to diurnal troughs",
+      "outdoorOk": "Outdoor activity permitted",
+      "outdoorLimit": "Limit outdoor exertion",
+      "outdoorAvoid": "Avoid outdoor exertion",
+      "ventilationAllowed": "Recommended to ventilate briefly",
+      "ventilationBlocked": "Keep windows firmly closed",
+      "addToCalendar": "Add to Google Calendar",
+      "opensNewTab": "(opens in a new tab)"
+    },
+    "actions": {
+      "title": "What Helps Most Right Now",
+      "subtitle": "Ranked by estimated reduction in your personal particulate exposure",
+      "topIntervention": "Most effective intervention",
+      "otherInterventions": "Secondary protective actions",
+      "baselineIndoor": "Baseline indoor: {value} µg/m³",
+      "projectedIndoor": "Indoor with action: {value} µg/m³",
+      "likelyReduction": "Likely reduction: ~{value} µg/m³",
+      "reductionRange": "Estimated reduction: {low} to {high} µg/m³",
+      "directionalEffect": "Qualitative effect: {direction}",
+      "howWeWorkedThisOut": "How we worked this out & assumptions",
+      "confidence": "Confidence",
+      "aiBadge": "Written by Google Gemma 4 31B IT",
+      "builtinBadge": "Built-in explanation"
+    },
+    "community": {
+      "title": "Community & Collective Action",
+      "subtitle": "Measures that protect apartment buildings, school gates, and neighborhood streets"
+    },
+    "household": {
+      "title": "Personalize Your Guidance",
+      "subtitle": "Tailor calculations to your family vulnerability, commute mode, and residence",
+      "naturalLanguageHeading": "Describe in plain language",
+      "naturalLanguagePlaceholder": "e.g., 2 adults, 3-year-old child, grandparent with asthma, daily two-wheeler commute, LPG stove, standard bedroom...",
+      "parseButton": "Parse description",
+      "parsing": "Extracting details with Google Gemma 4 31B IT...",
+      "parseSuccess": "Draft profile assembled! Review and edit below.",
+      "whoLivesHere": "Who lives here",
+      "childrenAgeBands": "Children age bands",
+      "childrenNone": "No children",
+      "elderly": "Adults 65 or older",
+      "respiratory": "Anyone with asthma or breathing condition",
+      "howYouTravel": "How you get around",
+      "commuteMode": "Commute mode",
+      "yourHome": "Your home",
+      "windowsHabit": "Window ventilation habit",
+      "cookingFuel": "Primary cooking fuel",
+      "purifierOwned": "Own an air purifier",
+      "purifierCadr": "Purifier CADR (m³/h)",
+      "purifierCadrHelp": "Clean Air Delivery Rate, typically 150-450 m³/h on product label",
+      "roomVolume": "Main room volume (m³)",
+      "roomVolumeHelp": "Standard 150 sq ft bedroom is approx 45 m³ (with 10 ft ceiling)",
+      "budget": "Budget constraint (₹ INR)",
+      "updateButton": "Update Advice",
+      "clearButton": "Clear my details",
+      "clearConfirm": "All demographic, household, and health details will be immediately wiped from your browser."
+    },
+    "ask": {
+      "title": "Ask BreatheWise",
+      "subtitle": "Ask follow-up questions about masks, filters, or adapting your routine",
+      "chip1": "Is it advisable to exercise outdoors today?",
+      "chip2": "How effective is my air purifier right now?",
+      "chip3": "Which mask type should I wear on two-wheelers?",
+      "placeholder": "Ask a question about today's smog or your protection routine...",
+      "charCount": "{current} / {max} characters",
+      "askButton": "Ask",
+      "thinking": "Consulting Google Gemma 4 31B IT...",
+      "assistantBadge": "Answered by Google Gemma 4 31B IT",
+      "declinationNotice": "I can only answer questions directly concerning air quality, smog exposure reduction, and household protection measures."
+    },
+    "status": {
+      "offline": "You are currently offline. Showing cached air quality data.",
+      "stale": "Air quality data was updated more than 2 hours ago.",
+      "rateLimited": "Assistant rate limit reached. You can ask another question in {seconds} seconds.",
+      "generalFallback": "Showing general city-wide recommendations. Add your household profile for personalized exposure estimates."
+    },
+    "about": {
+      "title": "How BreatheWise Works",
+      "subtitle": "Physics-based exposure modeling, honest data sources, and strict privacy.",
+      "backLink": "← Back to Assistant",
+      "section1Title": "1. Ground Stations & Atmospheric Forecasts",
+      "section1Body": "BreatheWise continuously ingests physical ground station measurements from OpenAQ (CPCB, DPCC, and research monitors) and combines them with atmospheric chemical dispersion forecasts from the Copernicus Atmosphere Monitoring Service (CAMS) via Open-Meteo. When physical monitors and atmospheric models diverge by more than 2×, BreatheWise visibly flags the discrepancy so you can account for microclimate sensor variations.",
+      "section2Title": "2. Indoor Mass-Balance Physics",
+      "section2Body": "Unlike commercial apps that rely on arbitrary scores, BreatheWise computes indoor particulate concentrations using a standard single-compartment mass-balance equation. Indoor PM2.5 is determined by envelope penetration, air exchange rate (ACH), surface deposition, and mechanical clean air delivery rate (CADR). Every reduction figure displayed is the result of physical modeling—never marketing claims.",
+      "section3Title": "3. Parametric Assumptions & Transparency",
+      "section3Body": "Science requires honesty about what is known and what is assumed. The table below lists all assumptions, uncertainty bounds, and parameter sources used in our calculations.",
+      "section4Title": "4. Privacy & Ephemeral State",
+      "section4Body": "Your health conditions, children's ages, and household details belong to you. BreatheWise stores your inputs strictly in your browser's ephemeral tab session (sessionStorage). No profile data is ever saved to disk, cookies, localStorage, URLs, or external tracking services. You can purge all session state at any time with one click.",
+      "section5Title": "5. Boundaries & Medical Guidance",
+      "section5Body": "BreatheWise is an environmental exposure engineering tool, not a medical device. It does not diagnose illness, prescribe medication, or provide clinical advice. If you experience severe cough, wheezing, chest discomfort, or shortness of breath, consult a physician or emergency medical provider immediately.",
+      "tableParam": "Parameter Key",
+      "tableRange": "Modeled Bounds",
+      "tableConfidence": "Confidence",
+      "tableSource": "Source / Assumption Justification"
+    },
+    "share": {
+      "title": "Share & Save Routine",
+      "sharePlan": "Share today's plan",
+      "shareWhatsApp": "Share on WhatsApp",
+      "printPlan": "Print or save as PDF",
+      "copied": "Plan summary copied to clipboard!",
+      "copyFailed": "Could not copy to clipboard. Please copy manually."
+    },
+    "purifierReader": {
+      "label": "Scan purifier label (CADR)",
+      "button": "Scan label photo",
+      "reading": "Reading label with Google Gemma 4 31B IT...",
+      "detected": "Detected CADR: {cadr} {unit} ({brand} {model})",
+      "apply": "Use this CADR",
+      "privacyNote": "Label photo is processed only in-memory to read technical specifications and is never stored or logged.",
+      "previewAlt": "Photograph of air purifier technical specification label",
+      "cancel": "Cancel",
+      "error": "Could not extract specifications from label. Please enter CADR manually."
+    }
+  }
+}
